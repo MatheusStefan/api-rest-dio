@@ -5,7 +5,6 @@ import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
-import me.dio.com.api.handler.BusinessException;
 import me.dio.com.api.handler.FieldMandatory;
 import me.dio.com.api.model.Usuario;
 
