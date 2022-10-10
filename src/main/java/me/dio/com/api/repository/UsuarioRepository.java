@@ -5,14 +5,26 @@ import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
+import me.dio.com.api.handler.BusinessException;
+import me.dio.com.api.handler.FieldMandatory;
 import me.dio.com.api.model.Usuario;
 
 @Repository
 public class UsuarioRepository {
 
     public void save(Usuario usuario){
-        System.out.println("SAVE - Recebendo o usuário na camada de repositório");
-        System.out.println(usuario);
+    	if(usuario.getLogin() == null) {
+    		throw new FieldMandatory("login");
+    	}
+    	if(usuario.getPassword() == null) {
+    		throw new FieldMandatory("senha");
+    	}
+    	if(usuario.getId() == null) {
+    		System.out.println("SAVE - Recebendo o usuário na camada de repositório");
+    	} else {
+    		System.out.println("UPDATE - Recebendo o usuário na camada de repositório");
+    	}
+    	System.out.println(usuario);
     }
     public void update(Usuario usuario){
         System.out.println("UPDATE - Recebendo o usuário na camada de repositório");
